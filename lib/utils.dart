@@ -50,9 +50,8 @@ Float32List convertBytesToFloat32(Uint8List bytes, [endian = Endian.little]) {
 // 提供模型名称，进行下载
 Future<void> downloadModelAndUnZip(
     BuildContext context, String modelName) async {
-    final downLoadUrl = "http://172.16.227.131:8000/$modelName.tar.bz2";
-  // final downLoadUrl =
-  //     'https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$modelName.tar.bz2';
+  final downLoadUrl =
+      'https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/$modelName.tar.bz2';
   final downloadModel = Provider.of<DownloadModel>(context, listen: false);
   // 获取本地存储目录
   final Directory directory = await getApplicationDocumentsDirectory();
@@ -182,12 +181,12 @@ Future<void> unzipModelFile(BuildContext context, String modelName) async {
   final Directory directory = await getApplicationDocumentsDirectory();
   final moduleZipFilePath = join(directory.path, '$modelName.tar.bz2');
   final downloadModel = Provider.of<DownloadModel>(context, listen: false);
-  try{
+  try {
     await _unzipDownloadedFile(moduleZipFilePath, directory.path, context);
-  }catch(e){
+  } catch (e) {
     downloadModel.setUnzipProgress(0.0);
     Navigator.of(context).pop();
-     // 解压失败，删除下载的文件
+    // 解压失败，删除下载的文件
     if (await File(moduleZipFilePath).exists()) {
       await File(moduleZipFilePath).delete();
     }
@@ -277,9 +276,8 @@ Future<void> _extractFileInIsolate(Map<String, dynamic> params) async {
 
 Future<void> _unzipDownloadedFile(
     String zipFilePath, String destinationPath, BuildContext context) async {
-
   final downloadModel = Provider.of<DownloadModel>(context, listen: false);
-    downloadModel.setUnzipProgress(0.1);
+  downloadModel.setUnzipProgress(0.1);
 
   // Use compute to run decompression in a separate isolate
   final result = await compute(
