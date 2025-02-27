@@ -1,4 +1,3 @@
-# Flutter Speech Recognition
 <div align="center">
   <img alt="logo" width="120" height="120" src="./assets/images/logo.jpg">
   <h1>Flutter Speech Recognition</h1>
