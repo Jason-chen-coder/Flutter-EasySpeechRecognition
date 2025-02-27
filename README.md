@@ -1,5 +1,8 @@
 # Flutter Speech Recognition
-![need_download](./assets/images/logo.jpg)  
+<div align="center">
+  <img alt="logo" width="120" height="120" src="./assets/images/logo.jpg">
+  <h1>Flutter Speech Recognition</h1>
+</div>
 
 ### 简介
 
